@@ -1,29 +1,51 @@
 .main--content {
    min-height: 100vh;
-   background-color: pink;
+   /* background-color: pink; */
    /* background-color: #284b63; */
+   padding-top: 4em;
+   /* border: solid pink 1px; */
+   /* background-image: linear-gradient(to top,white, #d9d0c6); */
+   
+}
+
+.image--container {
+   background-image: url("../images/desk8.png");
    padding-top: 5em;
-   background-image: linear-gradient(white, #284b63);
+   height: 30vh;
+   background-size: cover;
 }
 
 .message--container {
+   /* border: solid 5px pink; */
+   margin-top: 1em;
+   /* color: rgb(97, 97, 97); */
+   /* color: rgb(97, 97, 97); */
+   color: #284B63;
+   margin-right: 20em;
+   /* margin-left: 2em; */
+   border-radius: 1em;
+   padding: 1em 0 0 0em;
+   
 }
 
 .message--container h1 {
    display: flex;
-   justify-content: center;
-   color: #284b63;
+   justify-content: left;
+   font-size: 3rem;
+   margin-left: 2em
 }
 
 .btn--container {
    margin-top: 1em;
    display: flex;
-   justify-content: center;
+   justify-content: left;
+   padding-left: 6em;
+   margin-left: 6em;
 }
 
 .btn--container button {
    /* background-color: #d9d9d9; */
-   background-color: #f6f3f3;
+   /* background-color: #f6f3f3; */
    border: solid #f6f3f3 1px;
    padding: 0.8em 1.6em;
    border-radius: 1em;
