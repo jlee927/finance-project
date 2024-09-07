@@ -1,3 +1,4 @@
+import DisplayRevenue from "../components/DisplayRevenue";
 import { useEffect, useState } from "react";
 
 export default function Revenue() {
@@ -7,10 +8,9 @@ export default function Revenue() {
    const [revenue, setRevenue] = useState({
       //this is user revenue entry
       _id: user._id,
+      rev_period: "",
       rev_name: "",
       rev_amt: "",
-      rev_freq: "",
-      rev_date: ""
    });
 
    const fetchRevenue = async () => {
@@ -37,6 +37,8 @@ export default function Revenue() {
             [event.target.name]: event.target.value,
          };
       });
+
+      // console.log(event.target.value)
    };
 
    const handleSubmit = async (event) => {
@@ -57,22 +59,22 @@ export default function Revenue() {
 
       if (response.ok) {
          console.log("Successfull sent");
-         console.log("Test: " + revenue.rev_date)
+         console.log("Test: " + revenue.rev_period);
 
          setRevenue({
             _id: user._id, // Keep user ID intact if needed
+            rev_period: "",
             rev_name: "",
             rev_amt: "",
-            rev_freq: "",
-            rev_date: "",
+            
          });
 
-         fetchRevenue();
+         // fetchRevenue();
       }
    };
 
    useEffect(() => {
-      fetchRevenue();
+      // fetchRevenue();
    }, []);
 
    // console.log(revenueData);
@@ -119,53 +121,37 @@ export default function Revenue() {
             method="POST"
          >
             <h1>Revenue</h1>
-
-            <label>Revenue Name</label>
+            <label>Choose Revenue Period</label>
+            <input
+               name="rev_period"
+               onChange={handleRevenue}
+               type="month"
+               value={revenue.rev_period}
+            />
+            <br /> <br />
+            <label>Type of Revenue</label>
             <input
                name="rev_name"
                onChange={handleRevenue}
                type="text"
                value={revenue.rev_name}
             />
-
-            <label>Revenue Amount</label>
+            <br /> <br />
+            <label>Revenue * Per Month</label>
             <input
                name="rev_amt"
                onChange={handleRevenue}
-               type="text"
+               type="number"
                value={revenue.rev_amt}
+               min="0.00"
+               // step="0.01"
             />
-
-            <label>Revenue Frequency</label>
-            <input
-               name="rev_freq"
-               onChange={handleRevenue}
-               type="text"
-               value={revenue.rev_freq}
-            />
-            <input 
-               name="rev_date"
-               onChange={handleRevenue}
-               type="date"
-               value={revenue.rev_date}
-            />
-
-            <button>Add Entry</button>
-
-            <div className="rev--data">{renderedRevenueData}</div>
-         </form>
-
-         {/* <form className="expenses--container" onSubmit={handleSubmit}>
-            <label>Expenses</label>
-            <input />
+          
+            <br /> <br />
             <button>Add Entry</button>
          </form>
 
-         <form className="savings--container" onSubmit={handleSubmit}>
-            <label>Savings</label>
-            <input />
-            <button>Add Entry</button>
-         </form> */}
+         <DisplayRevenue currentPeriod={revenue.rev_period}/>
       </div>
    );
 }
