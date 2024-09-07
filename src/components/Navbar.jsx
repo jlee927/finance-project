@@ -35,6 +35,12 @@ export default function Navbar() {
                   {/* <span>{user.email}</span> */}
                   <div className="dropdown--content">
                      <button onClick={handleClick}>Log out</button>
+                     <NavLink className="revenues--nav" to="/revenue">
+                        <div>Revenues</div> 
+                     </NavLink>
+                     <NavLink className="expenses--nav" to="/expenses">
+                        <div>Expenses</div> 
+                     </NavLink>
                   </div>
                </div>
             </div>
