@@ -20,23 +20,6 @@ export default function Revenue() {
       rev_amt: "",
    });
 
-   const fetchRevenue = async () => {
-      try {
-         const res = await fetch(`${apiUrl}/data/get-revenue/${user._id}`);
-
-         if (!res.ok) {
-            throw new Error("Network was not okay");
-         }
-
-         const result = await res.json();
-
-         setRevenueData(result);
-      } catch (err) {
-         console.error(err);
-      }
-   };
-
-   const [revenueData, setRevenueData] = useState([{}]); //this is revenue data from get requets
    const handleRevenue = (event) => {
       setRevenue((prevFormData) => {
          return {
@@ -50,8 +33,6 @@ export default function Revenue() {
 
    const handleSubmit = async (event) => {
       event.preventDefault();
-
-      // console.log(revenue);
 
       const response = await fetch(`${apiUrl}/data/add-revenue`, {
          method: "POST",
@@ -75,53 +56,8 @@ export default function Revenue() {
             rev_amt: "",
             
          });
-
-         // fetchRevenue();
       }
    };
-
-   useEffect(() => {
-      // fetchRevenue();
-   }, []);
-
-   // console.log(revenueData);
-
-   function handleDelete(_id) {
-      console.log(`Delete!: id ${_id}`);
-      fetch(`${apiUrl}/data/delete-revenue/${_id}`, {
-         method: "DELETE",
-      })
-         .then((res) => {
-            if (!res.ok) {
-               throw new Error("Network was not ok");
-            }
-         })
-         .then(() => {
-            // Optionally, refetch or update revenueData to reflect the deletion
-            setRevenueData((prevData) =>
-               prevData.filter((rev) => rev._id !== _id)
-            );
-         })
-         .catch((err) => {
-            console.error("Error deleting item:", err);
-         });
-   }
-
-   const renderedRevenueData = revenueData.map((rev, key) => {
-      return (
-         <div key={key}>
-            <button type="button" onClick={() => handleDelete(rev._id)}>
-               Delete
-            </button>
-            <h4>
-               {rev.rev_name}, {rev.rev_freq}, {rev.rev_amt}
-            </h4>
-         </div>
-      );
-   });
-
-
- 
 
    return (
       <div>

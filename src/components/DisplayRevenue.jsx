@@ -24,16 +24,17 @@ export default function DisplayRevenue(props) {
    let [revenueData, setRevenueData] = useState([]);
 
    useEffect(() => {
-    //   console.log(
-    //      `${apiUrl}/data/get-revenue/${user._id}/${props.currentPeriod}`
-    //   );
+      //   console.log(
+      //      `${apiUrl}/data/get-revenue/${user._id}/${props.currentPeriod}`
+      //   );
       fetchRevenue();
+      console.log("fetch called!")
    }, [props.currentPeriod, props.revenueState]);
 
    //   console.log(revenueData[0]);
    const rev = revenueData.length > 0 ? revenueData[0].revenues : [];
    const total = revenueData.length > 0 ? revenueData[1].rev_total : [];
-//    console.log("Test", revenueData[1]);
+   //    console.log("Test", revenueData[1]);
    const renderedRevenueData = rev.map((rev, key) => {
       return (
          <div key={key}>
@@ -48,13 +49,36 @@ export default function DisplayRevenue(props) {
       );
    });
 
+   function handleDelete(_id) {
+      console.log(`Delete!: id ${_id}`);
+      fetch(`${apiUrl}/data/delete-revenue/${_id}`, {
+         method: "DELETE",
+      })
+         .then((res) => {
+            if (!res.ok) {
+               throw new Error("Network was not ok");
+            }
+         })
+         .then(() => {
+            // Optionally, refetch or update revenueData to reflect the deletion
+            setRevenueData((prevData) =>
+               prevData.filter((rev) => rev._id !== _id)
+            );
+         })
+         .catch((err) => {
+            console.error("Error deleting item:", err);
+         });
+
+        fetchRevenue();
+   }
+
    return (
       <div>
          <br></br>
          <h2>Monthly Income</h2>
          {/* <h2>{dynamicTest}</h2> */}
          <div>{renderedRevenueData}</div>
-    
+
          <h4>Total Revenue: ${total}</h4>
       </div>
    );
