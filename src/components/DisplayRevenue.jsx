@@ -4,11 +4,11 @@ export default function DisplayRevenue(props) {
    const apiUrl = import.meta.env.VITE_API_BASE_URL;
    const user = JSON.parse(localStorage.getItem("user"));
 
-   const dynamicTest = props.currentPeriod;
-
    const fetchRevenue = async () => {
       try {
-         const res = await fetch(`${apiUrl}/data/get-revenue/${user._id}`);
+         const res = await fetch(
+            `${apiUrl}/data/get-revenue/${user._id}/${props.currentPeriod}`
+         );
 
          if (!res.ok) {
             throw new Error("Network was not okay");
@@ -21,21 +21,28 @@ export default function DisplayRevenue(props) {
       }
    };
 
-   const [revenueData, setRevenueData] = useState([{}]);
+   let [revenueData, setRevenueData] = useState([]);
 
    useEffect(() => {
-      console.log(`${apiUrl}/data/get-revenue/${user._id}`);
+    //   console.log(
+    //      `${apiUrl}/data/get-revenue/${user._id}/${props.currentPeriod}`
+    //   );
       fetchRevenue();
-   }, [props.currentPeriod]);
+   }, [props.currentPeriod, props.revenueState]);
 
-   const renderedRevenueData = revenueData.map((rev, key) => {
+   //   console.log(revenueData[0]);
+   const rev = revenueData.length > 0 ? revenueData[0].revenues : [];
+   const total = revenueData.length > 0 ? revenueData[1].rev_total : [];
+//    console.log("Test", revenueData[1]);
+   const renderedRevenueData = rev.map((rev, key) => {
       return (
          <div key={key}>
-            <button type="button" onClick={() => handleDelete(rev._id)}>
-               Delete
-            </button>
             <h4>
-               {rev.rev_name}, {rev.rev_period}, {rev.rev_amt}
+               <button type="button" onClick={() => handleDelete(rev._id)}>
+                  Delete
+               </button>{" "}
+               : {}
+               {rev.rev_name}: ${rev.rev_amt} ({rev.rev_period})
             </h4>
          </div>
       );
@@ -43,9 +50,12 @@ export default function DisplayRevenue(props) {
 
    return (
       <div>
-         <h1>Display Rev Test</h1>
-         <h2>{dynamicTest}</h2>
+         <br></br>
+         <h2>Monthly Income</h2>
+         {/* <h2>{dynamicTest}</h2> */}
          <div>{renderedRevenueData}</div>
+    
+         <h4>Total Revenue: ${total}</h4>
       </div>
    );
 }

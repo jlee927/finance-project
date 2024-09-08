@@ -4,11 +4,18 @@ import { useEffect, useState } from "react";
 export default function Revenue() {
    const user = JSON.parse(localStorage.getItem("user"));
    // console.log(user._id);
+
+   const date = new Date();
+   let month = date.getMonth() + 1;
+   month = month <= 9 ? `0${month}` : month;
+
+   const currPeriod = `${date.getFullYear()}-${month}`;
+
    const apiUrl = import.meta.env.VITE_API_BASE_URL;
    const [revenue, setRevenue] = useState({
       //this is user revenue entry
       _id: user._id,
-      rev_period: "",
+      rev_period: currPeriod,
       rev_name: "",
       rev_amt: "",
    });
@@ -63,7 +70,7 @@ export default function Revenue() {
 
          setRevenue({
             _id: user._id, // Keep user ID intact if needed
-            rev_period: "",
+            rev_period: revenue.rev_period,
             rev_name: "",
             rev_amt: "",
             
@@ -113,6 +120,9 @@ export default function Revenue() {
       );
    });
 
+
+ 
+
    return (
       <div>
          <form
@@ -151,7 +161,7 @@ export default function Revenue() {
             <button>Add Entry</button>
          </form>
 
-         <DisplayRevenue currentPeriod={revenue.rev_period}/>
+         <DisplayRevenue currentPeriod={revenue.rev_period} revenueState={revenue}/>
       </div>
    );
 }

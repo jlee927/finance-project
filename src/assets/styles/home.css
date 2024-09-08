@@ -17,14 +17,14 @@
 
 .message--container {
    /* border: solid 5px pink; */
-   margin-top: 1em;
+   margin-top: -0.5em;
    /* color: rgb(97, 97, 97); */
    /* color: rgb(97, 97, 97); */
    color: #284B63;
-   margin-right: 20em;
+   /* margin-right: 20em; */
    /* margin-left: 2em; */
    border-radius: 1em;
-   padding: 1em 0 0 0em;
+   /* padding: 1em 0 0 0em; */
    
 }
 
