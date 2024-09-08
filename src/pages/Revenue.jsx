@@ -31,6 +31,26 @@ export default function Revenue() {
       // console.log(event.target.value)
    };
 
+   
+   const fetchRevenue = async () => {
+      try {
+         const res = await fetch(
+            `${apiUrl}/data/get-revenue/${user._id}/${currPeriod}`
+         );
+
+         if (!res.ok) {
+            throw new Error("Network was not okay");
+         }
+         const result = await res.json();
+
+         setRevenueData(result);
+      } catch (err) {
+         console.error(err);
+      }
+   };
+
+   const [submit, setSubmit] = useState(true)
+
    const handleSubmit = async (event) => {
       event.preventDefault();
 
@@ -47,7 +67,7 @@ export default function Revenue() {
 
       if (response.ok) {
          console.log("Successfull sent");
-         console.log("Test: " + revenue.rev_period);
+         // console.log("Test: " + revenue.rev_period);
 
          setRevenue({
             _id: user._id, // Keep user ID intact if needed
@@ -57,6 +77,7 @@ export default function Revenue() {
             
          });
       }
+      setSubmit(!submit)
    };
 
    return (
@@ -97,7 +118,7 @@ export default function Revenue() {
             <button>Add Entry</button>
          </form>
 
-         <DisplayRevenue currentPeriod={revenue.rev_period} revenueState={revenue}/>
+         <DisplayRevenue currentPeriod={revenue.rev_period} submitState={submit}/>
       </div>
    );
 }

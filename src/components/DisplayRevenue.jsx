@@ -29,7 +29,7 @@ export default function DisplayRevenue(props) {
       //   );
       fetchRevenue();
       console.log("fetch called!")
-   }, [props.currentPeriod, props.revenueState]);
+   }, [props.currentPeriod, props.submitState]);
 
    //   console.log(revenueData[0]);
    const rev = revenueData.length > 0 ? revenueData[0].revenues : [];
