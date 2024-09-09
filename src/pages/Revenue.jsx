@@ -31,24 +31,6 @@ export default function Revenue() {
       // console.log(event.target.value)
    };
 
-   
-   const fetchRevenue = async () => {
-      try {
-         const res = await fetch(
-            `${apiUrl}/data/get-revenue/${user._id}/${currPeriod}`
-         );
-
-         if (!res.ok) {
-            throw new Error("Network was not okay");
-         }
-         const result = await res.json();
-
-         setRevenueData(result);
-      } catch (err) {
-         console.error(err);
-      }
-   };
-
    const [submit, setSubmit] = useState(true)
 
    const handleSubmit = async (event) => {
@@ -104,7 +86,7 @@ export default function Revenue() {
                value={revenue.rev_name}
             />
             <br /> <br />
-            <label>Revenue * Per Month</label>
+            <label>$ Per Month</label>
             <input
                name="rev_amt"
                onChange={handleRevenue}
@@ -119,6 +101,7 @@ export default function Revenue() {
          </form>
 
          <DisplayRevenue currentPeriod={revenue.rev_period} submitState={submit}/>
+         <br/>
       </div>
    );
 }

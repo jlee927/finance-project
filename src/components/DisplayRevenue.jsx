@@ -1,3 +1,4 @@
+import PieChart from "./PieChart";
 import { useEffect, useState } from "react";
 
 export default function DisplayRevenue(props) {
@@ -49,6 +50,7 @@ export default function DisplayRevenue(props) {
       );
    });
 
+   const [deleteState, setDeleteState] = useState(true)
    function handleDelete(_id) {
       console.log(`Delete!: id ${_id}`);
       fetch(`${apiUrl}/data/delete-revenue/${_id}`, {
@@ -70,6 +72,7 @@ export default function DisplayRevenue(props) {
          });
 
         fetchRevenue();
+        setDeleteState(!deleteState);
    }
 
    return (
@@ -79,7 +82,8 @@ export default function DisplayRevenue(props) {
          {/* <h2>{dynamicTest}</h2> */}
          <div>{renderedRevenueData}</div>
 
-         <h4>Total Revenue: ${total}</h4>
+         {/* <h4>Total Revenue: ${total}</h4> */}
+         <PieChart currentPeriod={props.currentPeriod} submitState={props.submitState} deleteState={deleteState} totalRev={total}/>
       </div>
    );
 }
