@@ -8,7 +8,7 @@ export default function Home() {
             <div className="message--container">
                <h1>Welcome to your <br/>Finance Tool</h1>
                <div className="btn--container">
-                  <Link to="/add_entry">
+                  <Link to="/dashboard">
                      <button>Get Started!</button>
                   </Link>
                </div>

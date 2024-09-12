@@ -111,7 +111,6 @@ export default function PieChart(props) {
          {revenueData[0].revenues.length > 0 ? (
             <div style={{ width: 400 }}>
                <br/>
-               
                <h3>Total Revenue ${props.totalRev}</h3>
                <Pie data={data} options={{}} />
             </div>
