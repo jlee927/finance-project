@@ -104,18 +104,31 @@ export default function PieChart(props) {
       });
    }, [revenueData]);
 
+   const options = {
+      plugins: {
+        legend: {
+          position: 'right', 
+        },
+      //   datalabels: { // Use datalabels plugin for data labels
+      //     anchor: 'end', // Position label relative to data point
+      //     align: 'top', // Vertical alignment of label
+      //     offset: 5, // Distance from the data point
+      //   },
+      },
+    };
+
    // console.log(`rev ${rev}`)
    // console.log(revenueData[0].revenues.length)
    return (
       <div>
          {revenueData[0].revenues.length > 0 ? (
-            <div style={{ width: 400 }}>
+            <div className="rev--pie"style={{ width: 400 }}>
                <br/>
-               <h3>Total Revenue ${props.totalRev}</h3>
-               <Pie data={data} options={{}} />
+               <h2>Total Revenue: ${props.totalRev}</h2>
+               <Pie data={data} options={options}/>
             </div>
          ) : (
-            <div> No DATA!</div>
+            <div className="rev--pie">Add Data to View Your Chart</div>
          )}
       </div>
    );

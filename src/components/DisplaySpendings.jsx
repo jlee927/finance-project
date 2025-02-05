@@ -1,27 +1,26 @@
-import ChartPie from "./SavingsPie";
 import { useEffect, useState } from "react";
 
-export default function DisplaySavings(props) {
+export default function DisplaySpendings(props) {
     const user = JSON.parse(localStorage.getItem("user"))
     const apiUrl = import.meta.env.VITE_API_BASE_URL
-    const [savingsData, setSavingsData] = useState([
+    const [spendingData, setSpendingData] = useState([
         {
-            savings: [
+            spendings: [
                 {
                     _id: "",
-                    savings_period: "",
-                    savings_name: "",
-                    savings_amt: "",
+                    spending_period: "",
+                    spending_name: "",
+                    spending_amt: "",
                 },
             ],
         },
-        { totalSavings: "" },
+        { totalSpending: "" },
     ])
 
     const fetchRevenue = async () => {
         try {
             const res = await fetch(
-                `${apiUrl}/data/get-savings/${user._id}/${props.currentPeriod}`
+                `${apiUrl}/data/get-spendings/${user._id}/${props.currentPeriod}`
             )
 
             if (!res.ok) {
@@ -29,7 +28,7 @@ export default function DisplaySavings(props) {
             }
             const result = await res.json()
 
-            setSavingsData(result)
+            setSpendingData(result)
         } catch (err) {
             console.error(err)
         }
@@ -39,14 +38,14 @@ export default function DisplaySavings(props) {
         fetchRevenue()
     }, [props.currentPeriod, props.submitState])
 
-    const renderedSavings = savingsData[0].savings.map((savings, key) => {
+    const renderedSpendings = spendingData[0].spendings.map((spendings, key) => {
         return (
             <tr key={key}>
-                <td>{savings.savings_name}</td>
-                <td>${savings.savings_amt}</td>
-                <td>{savings.savings_period}</td>
+                <td>{spendings.spending_name}</td>
+                <td>${spendings.spending_amt}</td>
+                <td>{spendings.spending_period}</td>
                 <td>
-                    <button type="button" className="savings--delete" onClick={() => handleDelete(savings._id)}>Click</button>
+                    <button type="button" className="savings--delete" onClick={() => handleDelete(spendings._id)}>Click</button>
                 </td>
             </tr>
         )
@@ -54,8 +53,8 @@ export default function DisplaySavings(props) {
 
     const [deleteState, setDeleteState] = useState(true)
     function handleDelete(_id) {
-        console.log(`Delete!: id ${_id}`)
-        fetch(`${apiUrl}/data/delete-savings/${_id}`, {
+        // console.log(`Delete!: id ${_id}`)
+        fetch(`${apiUrl}/data/delete-spending/${_id}`, {
             method: "DELETE",
         })
             .then((res) => {
@@ -65,7 +64,7 @@ export default function DisplaySavings(props) {
             })
             .then(() => {
                 // Optionally, refetch or update revenueData to reflect the deletion
-                setSavingsData((prevData) =>
+                setSpendingData((prevData) =>
                     prevData.filter((rev) => rev._id !== _id)
                 )
             })
@@ -76,11 +75,9 @@ export default function DisplaySavings(props) {
         fetchRevenue()
         setDeleteState(!deleteState)
     }
-    // console.log(savingsData[0].savings.length)
-
     return (
         <div className="savings--result--container">
-            <h2>Savings During {props.currentPeriod}</h2>
+            <h2>Spendings During {props.currentPeriod}</h2>
             <table>
                 <tbody>
                     <tr>
@@ -89,7 +86,7 @@ export default function DisplaySavings(props) {
                         <th>Rev Period</th>
                         <th>Delete!</th>
                     </tr>
-                    {savingsData[0].savings.length == 0 ? (
+                    {spendingData[0].spendings.length == 0 ? (
                         <tr>
                             <td>n/a</td>
                             <td>n/a</td>
@@ -97,12 +94,12 @@ export default function DisplaySavings(props) {
                             <td>n/a</td>
                         </tr>
                     ) : (
-                        renderedSavings
+                        renderedSpendings
                     )}
                 </tbody>
             </table>
-            <ChartPie savingsData={savingsData} />
-            {/* <ModularPie data={savingsData[0].savings} /> */}
+            {/*<PieChart spendingsData={spendingData} />*/}
         </div>
+
     )
 }

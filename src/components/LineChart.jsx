@@ -21,8 +21,15 @@ export default function BarGraph() {
             backgroundColor: "pink", //["red", "green", "blue", "pink"],
             borderColor: "rgb(255, 99, 132)",
 
-            data: [0, 10, 5, 2, 20, 30, 45],
+            data: [0, 10, 5, 2, 20, 30, 45], 
          },
+
+         {
+            label: "Expenses 2024",
+            backgroundColor: "blue",
+            borderColor: "blue",
+            data: [0, 5, 12, 18, 27, 30, 2, 15]
+         }
       ],
    });
    return (

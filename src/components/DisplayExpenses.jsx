@@ -40,13 +40,13 @@ export default function DisplayExpenses(props) {
 
     useEffect(() => {
         fetchRevenue()
-        console.log("fetched")
-        console.log(expensesData)
+        // console.log("fetched")
+        // console.log(expensesData)
     }, [props.currentPeriod, props.submitState])
 
     const [deleteState, setDeleteState] = useState(true)
     function handleDelete(_id) {
-        console.log(`Delete!: id ${_id}`)
+        // console.log(`Delete!: id ${_id}`)
         fetch(`${apiUrl}/data/delete-expense/${_id}`, {
             method: "DELETE",
         })
@@ -71,29 +71,50 @@ export default function DisplayExpenses(props) {
 
     const renderedExpenses = expensesData[0].expenses.map((expense, key) => {
         return (
-            <div key={key}>
-                <h4>
+            <tr key={key}>
+                <td>{expense.expense_name}</td>
+                <td>${expense.expense_amt}</td>
+                <td>{expense.expense_period}</td>
+                <td>
                     <button
+                        className="expenses--delete"
                         type="button"
                         onClick={() => {
                             handleDelete(expense._id)
                         }}
                     >
-                        Delete!
+                        Click
                     </button>
-                    {expense.expense_name}: ${expense.expense_amt} (
-                    {expense.expense_period})
-                </h4>
-            </div>
+                </td>
+            </tr>
         )
     })
 
     return (
-        <div>
+        <div className="expenses--result--container">
             <h2>Monthly Expenses</h2>
-            <div>{renderedExpenses}</div>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Name</th>
+                        <th>Amount</th>
+                        <th>Rev Period</th>
+                        <th>Delete!</th>
+                    </tr>
+                    {expensesData[0].expenses == 0 ? (
+                        <tr>
+                            <td>n/a</td>
+                            <td>n/a</td>
+                            <td>n/a</td>
+                            <td>n/a</td>
+                        </tr>
+                    ) : (
+                        renderedExpenses
+                    )}
+                </tbody>
+            </table>
 
-            <PieChart expensesData={expensesData}/>
+            <PieChart expensesData={expensesData} />
         </div>
     )
 }

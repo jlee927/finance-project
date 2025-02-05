@@ -25,17 +25,26 @@ body {
 
 .left--container {
    display: flex;
+   /* padding-left: 1em; */
+   /* border: solid #353535 1px; */
+   /* border-radius: 1.5em; */
+   /* background-color: #3C6E71; */
    margin-left: 2em;
    padding: 0 1em 0 1em;
    margin: 0.5em 0 0.5em 0;
 }
 
 .logo {
+   /* width: 13em;
+   height: 3em;
+   margin-top: 0.2em;
+   object-fit: cover; */
    margin-top: 0.8em;
    height: auto;
    width: auto;
    max-height: 72px;
    max-width: 290px;
+
    line-height: 4.5em;
 }
 
@@ -76,9 +85,8 @@ body {
 }
 
 .profile--img {
-   display: block;
-   margin: 1.3em auto 1em auto;
-   justify-content: center;
+   margin-top: 1.2em;
+   margin: 1.2em 0 0 1em;
 }
 
 .right--container {
@@ -93,69 +101,47 @@ body {
 }
 
 .account--containers {
+   border: solid green 1px;
    display: flex;
    background-color: #284b63;
    padding: 0 1.5em;
    border-radius: 2em;
    font-size: 1rem;
-   /*margin: 0.6em 2em 0.6em 0;*/
-   margin: 0.8em 2em 0 0;
+   margin: 0.6em 2em 0.6em 0;
+   border: solid #353535 2px;
    height: 2.5em;
 }
 
 .login--nav {
-   font-size: 0.8rem;
    text-decoration: none;
    color: white;
    font-weight: 400;
    border-radius: 3em;
+   height: inherit;
    padding: 1em 0 0 0;
 }
 
 .signup--nav {
-   font-size: 0.8rem;
    text-decoration: none;
    color: white;
    font-weight: 400;
    margin-right: 1em;
-   padding: 1em 1em 0 0;
-   border-right: solid rgb(72, 69, 69) 1px;
+   padding: 1em 0.8em 0 0;
+   border-right: solid rgb(72, 69, 69) 2px;
 }
 
 .dropdown {
    position: relative;
    display: inline-block;
-   width: 3em;
 }
 
 .dropdown--content {
    display: none;
    position: absolute;
-   background-color: #f7f7f7;
+   background-color: #f9f9f9;
    min-width: 160px;
    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
    z-index: 1;
-   width: 6em;
-   height: 7em;
-   right: 0;
-   border-radius: 1em;
-}
-
-.logout--button {
-   display: block;
-   margin: 1em auto 0 auto;
-   width: 8em;
-   border: none;
-   padding: 0.6em 0;
-   color: #284b63;
-   background-color: #dcdcdc;
-   border-radius: 0.1em;
-}
-
-.logout--button:hover {
-   /*background-color: #c0c0c0;*/
-   color: white;
-   background-color: #284b63;
 }
 
 .dropdown:hover .dropdown--content {
@@ -177,9 +163,4 @@ a:hover {
 
 img:hover {
    cursor: pointer;
-}
-
-.nuna-test {
-   margin: 0.2em 0 0 0;
-   color: #284b63;
 }

@@ -1,0 +1,119 @@
+.rev--container {
+    margin-left: 9.5em;
+    /* border: solid purple 1px; */
+    padding: 3em;
+    color: #284b63;
+    padding-top: 6.5em;
+    /* margin-top: 4.5em; */
+}
+
+.rev--container input {
+    border: #284b63 solid 1px;
+    margin-left: 1em;
+}
+
+.form--container {
+    padding: 1em;
+}
+
+.rev--period--container {
+    display: flex;
+}
+
+.rev--period--container input {
+    margin-top: 0.6em;
+    border-radius: 1em;
+    padding: 0.7em;
+    height: 0.4em;
+}
+
+.amt-and-name {
+    margin-top: 1em;
+    border: solid 1px #284b63;
+    border-radius: 2em;
+    padding: 3em;
+    width: 30em;
+    height: auto;
+}
+
+.amt-and-name button {
+    margin-top: 1.5em;
+    font-size: 0.9rem;
+    background-color: #284b63;
+    padding: 0.5em 15.1em;
+    border: solid 1px #284b63;
+    border-radius: 1em;
+    color: #fff;
+}
+
+.rev--name--container,
+.rev--amt--container {
+    margin-top: 1em;
+    display: flex;
+    margin-bottom: 1em;
+}
+
+.rev--name--container label,
+.rev--amt--container label {
+    width: 8em;
+    padding-top: 0.2em;
+}
+
+.rev--name--container input,
+.rev--amt--container input {
+    flex: 1;
+    border: #284b63 solid 1px;
+    height: 1.5em;
+    padding: 0.2em;
+    border-radius: 0.4em;
+}
+
+/* ****** DISPLAY REVENUE SECTION */
+
+.rev--result--container {
+    padding: 1em;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 1em;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.rev--pie {
+    margin-top: 4em;
+    border: solid 1px #284b63;
+    border-radius: 2em;
+    padding: 0em 5em;
+}
+
+.rev--pie h2 {
+    /* padding: 1em 0 0 1.5em; */
+    margin: 1em 0 -1em -0.4em;
+    /* border: solid; */
+    /* padding-right: ; */
+}
+
+.rev--delete {
+    padding: 0.7em 0 0.7em 0;
+    width: 100%;
+    background-color: inherit;
+    border: none
+    /* border: solid 1px; */
+}
+
+.rev--delete:hover {
+    background-color: #284b63;
+    color: white;
+}

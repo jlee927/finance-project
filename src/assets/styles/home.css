@@ -1,11 +1,6 @@
 .main--content {
    min-height: 100vh;
-   /* background-color: pink; */
-   /* background-color: #284b63; */
-   padding-top: 4em;
-   /* border: solid pink 1px; */
-   /* background-image: linear-gradient(to top,white, #d9d0c6); */
-   
+   padding: 2em 1em 0 1em;
 }
 
 .image--container {
@@ -13,19 +8,13 @@
    padding-top: 5em;
    height: 30vh;
    background-size: cover;
+   margin: 5em 0 0 0;
 }
 
 .message--container {
-   /* border: solid 5px pink; */
    margin-top: -0.5em;
-   /* color: rgb(97, 97, 97); */
-   /* color: rgb(97, 97, 97); */
    color: #284B63;
-   /* margin-right: 20em; */
-   /* margin-left: 2em; */
    border-radius: 1em;
-   /* padding: 1em 0 0 0em; */
-   
 }
 
 .message--container h1 {
@@ -54,10 +43,39 @@
    color: #284b63;
 }
 
+.btn--container button:hover {
+   background-color: #dcdcdc;
+   border: solid #dcdcdc 1px;
+}
+
 .btn--container:hover {
    cursor: pointer;
 }
 
 .btn--container button:hover {
    cursor: pointer;
+}
+
+.home--info {
+   margin: 5em 0 0 0;
+   /*border: solid 1px pink;*/
+   display: flex;
+   gap: 3.5em;
+   justify-content: center;
+}
+
+.home--info div {
+   width: 28em;
+   height: 18em;
+   background-color: #f2f4f6;
+   color: #284b63;
+   justify-items: center;
+   border-radius: 1em;
+   padding: 2em 1em 1em 1em;
+}
+
+.control--icon {
+   margin: 3em 0 0 0;
+   height: 8em;
+   width: 8em;
 }

@@ -1,4 +1,6 @@
+import "../assets/styles/expenses.css";
 import DisplayExpenses from "../components/DisplayExpenses";
+import Sidebar from "../components/Sidebar";
 import { useState } from "react";
 
 export default function Expenses() {
@@ -57,42 +59,58 @@ export default function Expenses() {
 
     return (
         <div>
-            <form
-                className="expenses--container"
-                onSubmit={handleSubmit}
-                method="POST"
-            >
-                <h1>Expenses</h1>
-                <label>Choose Expense Period</label>
-                <input
-                    name="expense_period"
-                    onChange={handleExpenses}
-                    type="month"
-                    value={formData.expense_period}
-                />
-                <br /> <br />
-                <label>Type of Expense</label>
-                <input
-                    name="expense_name"
-                    onChange={handleExpenses}
-                    type="text"
-                    value={formData.expense_name}
-                />
-                <br /> <br />
-                <label>$ Per Month</label>
-                <input
-                    name="expense_amt"
-                    onChange={handleExpenses}
-                    type="number"
-                    value={formData.expense_amt}
-                    min="0.00"
-                    // step="0.01"
-                />
-                <br /> <br />
-                <button>Add Entry</button>
-            </form>
+            <Sidebar />
+            <div className="expenses--container">
+                <form
+                    className="form--container"
+                    onSubmit={handleSubmit}
+                    method="POST"
+                >
+                    <div className="expenses--period--container">
+                        <label>
+                            <h1>Choose Expenses Period</h1>
+                        </label>
+                        <input
+                            name="expense_period"
+                            onChange={handleExpenses}
+                            type="month"
+                            value={formData.expense_period}
+                        />
+                    </div>
+                    <div className="amt-and-name">
+                        <h2>Add an Expense</h2>
+                        <div className="expenses--name--container">
+                            <label>Type of Expense*</label>
+                            <input
+                                name="expense_name"
+                                onChange={handleExpenses}
+                                type="text"
+                                value={formData.expense_name}
+                            />
+                        </div>
 
-            <DisplayExpenses currentPeriod={formData.expense_period} submitState={submitState} />
+                        <div className="expenses--amt--container">
+                            <label>$ Per Month*</label>
+
+                            <input
+                                name="expense_amt"
+                                onChange={handleExpenses}
+                                type="number"
+                                value={formData.expense_amt}
+                                min="0.00"
+                            // step="0.01"
+                            />
+                        </div>
+
+                        <button>Submit</button>
+                    </div>
+                </form>
+
+                <DisplayExpenses
+                    currentPeriod={formData.expense_period}
+                    submitState={submitState}
+                />
+            </div>
         </div>
     )
 }

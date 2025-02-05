@@ -1,0 +1,121 @@
+.savings--container {
+    margin: 0 0 0 9.5em;
+    padding: 3em;
+    padding-top: 6.5em;
+    color: #284b63;
+    display: flex;
+    flex-direction: column;
+}
+
+.savings--container input {
+    border: #284b63 solid 1px;
+    margin-left: 1em;
+}
+
+.form--container {
+    padding: 1em;
+}
+
+.savings--period--container {
+    display: flex;
+}
+
+.savings--period--container input {
+    margin-top: 0.6em;
+    border-radius: 1em;
+    padding: 0.7em;
+    height: 0.4em;
+}
+
+.amt-and-name {
+    margin-top: 1em;
+    border: solid 1px #284b63;
+    border-radius: 2em;
+    padding: 3em;
+    width: 30em;
+    height: auto;
+}
+
+.amt-and-name button {
+    margin-top: 1.5em;
+    font-size: 0.9rem;
+    background-color: #284b63;
+    padding: 0.5em 15.1em;
+    border: solid 1px #284b63;
+    border-radius: 1em;
+    color: #fff;
+}
+
+.savings--name--container,
+.savings--amt--container {
+    margin-top: 1em;
+    display: flex;
+    margin-bottom: 1em;
+}
+
+.savings--name--container label,
+.savings--amt--container label {
+    width: 8em;
+    padding-top: 0.2em;
+}
+
+.savings--name--container input,
+.savings--amt--container input {
+    flex: 1;
+    border: #284b63 solid 1px;
+    height: 1.5em;
+    padding: 0.2em;
+    border-radius: 0.4em;
+}
+
+/* ****** DISPLAY savings-SECTION */
+
+.rev--result--container {
+    padding: 1em;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 1em;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.savings--pie {
+    margin-top: 4em;
+    border: solid 1px #284b63;
+    border-radius: 2em;
+    padding: 0em 5em;
+}
+
+.savings--pie h2 {
+    /* padding: 1em 0 0 1.5em; */
+    margin: 1em 0 -1em -0.4em;
+    /* border: solid; */
+    /* padding-right: ; */
+}
+
+.savings--delete {
+    padding: 0.7em 0 0.7em 0;
+    width: 100%;
+    background-color: inherit;
+    border: none
+    /* border: solid 1px; */
+}
+
+.savings--delete:hover {
+    background-color: #284b63;
+    color: white;
+}
+
+

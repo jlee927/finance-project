@@ -4,6 +4,18 @@ import { Pie } from "react-chartjs-2";
 
 export default function ExpensePie(props) {
     // console.log("TEST + ", props.expensesData)
+    const options = {
+        plugins: {
+            legend: {
+                position: "right",
+            },
+            //   datalabels: { // Use datalabels plugin for data labels
+            //     anchor: 'end', // Position label relative to data point
+            //     align: 'top', // Vertical alignment of label
+            //     offset: 5, // Distance from the data point
+            //   },
+        },
+    }
 
     const [data, setData] = useState({
         labels: [],
@@ -30,9 +42,9 @@ export default function ExpensePie(props) {
     })
 
     useEffect(() => {
-        console.log("Test")
+        // console.log("Test")
         const expenses = props.expensesData[0].expenses
-        console.log(expenses)
+        // console.log(expenses)
         const amt = expenses.map((data) => data.expense_amt)
         const names = expenses.map((data) => data.expense_name)
 
@@ -64,12 +76,12 @@ export default function ExpensePie(props) {
     return (
         <div>
             {props.expensesData[0].expenses.length > 0 ? (
-                <div style={{ width: 400 }}>
-                    <h4>My Pie</h4>
-                    <Pie data={data} />
+                <div className="expenses--pie" style={{ width: 400 }}>
+                    <h2>Total Expenses</h2>
+                    <Pie data={data} options={options} />
                 </div>
             ) : (
-                <div>No DATA</div>
+                <div className="expenses--pie">Add Data to View Chart!</div>
             )}
         </div>
     )

@@ -1,0 +1,47 @@
+.userdata-overview {
+    /* border: green solid 1px; */
+    padding: 0.7em 0.7em;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 0.5em;
+    background-color: rgb(248, 246, 246);
+    /* flex-direction: column; */
+    margin-left: 9.5em;
+    padding-top: 5.5em;
+}
+
+/* @media (max-width: 1380px) {
+    .first-half {
+        flex-direction: column;
+        width: 50%
+    }
+
+    .overview-component{
+        margin-top: 0.5em;
+    }
+} */
+
+.overview-component {
+    border: solid 1px purple;
+    display: flex;
+    padding: 0.3em 4em;
+    border-radius: 0.5em;
+    border: #f1f1f1 solid 2px;
+    background-color: white;
+}
+
+.overview-text {
+    margin-left: 0.4em;
+}
+
+.overview-text h4 {
+    /* border: solid 1px pink; */
+    font-size: 0.5em;
+    margin-left: 0.5em;
+}
+
+.overview-icon {
+    padding-top: 0.15em;
+    width: 2em;
+    height: 2em;
+}

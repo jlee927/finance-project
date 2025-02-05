@@ -1,0 +1,118 @@
+.expenses--container {
+    margin: 0 0 0 9.5em;
+    padding: 3em;
+    padding-top: 6.5em;
+    color: #284b63;
+}
+
+.expenses--container input {
+    border: #284b63 solid 1px;
+    margin-left: 1em;
+}
+
+.form--container {
+    padding: 1em;
+}
+
+.expenses--period--container {
+    display: flex;
+}
+
+.expenses--period--container input {
+    margin-top: 0.6em;
+    border-radius: 1em;
+    padding: 0.7em;
+    height: 0.4em;
+}
+
+.amt-and-name {
+    margin: 0 0 0 5em;
+    margin-top: 1em;
+    border: solid 1px #284b63;
+    border-radius: 2em;
+    padding: 3em;
+    width: 30em;
+    height: auto;
+}
+
+.amt-and-name button {
+    margin-top: 1.5em;
+    font-size: 0.9rem;
+    background-color: #284b63;
+    padding: 0.5em 15.1em;
+    border: solid 1px #284b63;
+    border-radius: 1em;
+    color: #fff;
+}
+
+.expenses--name--container,
+.expenses--amt--container {
+    margin-top: 1em;
+    display: flex;
+    margin-bottom: 1em;
+}
+
+.expenses--name--container label,
+.expenses--amt--container label {
+    width: 8em;
+    padding-top: 0.2em;
+}
+
+.expenses--name--container input,
+.expenses--amt--container input {
+    flex: 1;
+    border: #284b63 solid 1px;
+    height: 1.5em;
+    padding: 0.2em;
+    border-radius: 0.4em;
+}
+
+/* ****** DISPLAY EXPENSES SECTION */
+
+.expenses--result--container {
+    padding: 1em;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 1em;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.expenses--pie {
+    margin-top: 4em;
+    border: solid 1px #284b63;
+    border-radius: 2em;
+    padding: 0em 5em;
+}
+
+.expenses--pie h2 {
+    /* padding: 1em 0 0 1.5em; */
+    margin: 1em 0 -1em -0.4em;
+    /* border: solid; */
+    /* padding-right: ; */
+}
+
+.expenses--delete {
+    padding: 0.7em 0 0.7em 0;
+    width: 100%;
+    background-color: inherit;
+    border: none
+        /* border: solid 1px; */
+}
+
+.expenses--delete:hover {
+    background-color: #284b63;
+    color: white;
+}

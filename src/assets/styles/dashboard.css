@@ -1,0 +1,33 @@
+.dashboard--container {
+    margin-left: 9.5em;
+    display: flex;
+    flex-direction: column;
+    color: #284b63;
+
+    padding: 3em 3em 3em 3em;
+}
+
+.dashboard--message {
+    display: flex;
+    justify-content: center;
+}
+
+.all-data {
+    display: flex;
+    justify-content: center;
+    /*border: solid pink;*/
+    padding: 1em 0 0 0;
+}
+
+.graph {
+    /*border: solid pink;*/
+    padding: 1em 0 0 0;
+    width: 40vw;
+    height: auto;
+}
+
+
+
+
+
+
