@@ -20,11 +20,11 @@ Ensure you have the following installed:
 ### Installation
 
 1. Clone the repository to your local machine:
-     git clone https://github.com/your-username/fetch-finance.git
+     git clone https://github.com/jlee927/finance-project
      cd fetch-finance
 3. Install the frontend dependencies:
      npm install
 4. Start the frontend in development mode:
      npm run dev
 
-Your application should now be running at http://localhost:5173.
+   Your application should now be running at http://localhost:5173.
